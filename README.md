@@ -28,3 +28,6 @@ Code Generator, Generated files\
 
 ### ADC1
 特に変更せず
+
+### USART2
+✅USART2 global interrupt

@@ -3,6 +3,7 @@
         "**/main.cpp"
     ],
     "words": [
+        "Cplt",
         "cproject",
         "EXTI",
         "GPIOA",
@@ -10,6 +11,8 @@
         "GPIOC",
         "huart",
         "NUCLEO",
-        "USART"
+        "ukaikokko",
+        "USART",
+        "WKUP"
     ]
 }
