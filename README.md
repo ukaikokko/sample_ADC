@@ -27,7 +27,34 @@ Code Generator, Generated files\
 ✅Generate peripheral initialization as a pair of '.c/.h' files per peripheral
 
 ### ADC1
-特に変更せず
+✅IN0\
+✅IN1\
+✅IN4
+#### Parameter Settings
+##### ADC_Settings
+✅Scan Conversion Mode\
+✅Continuous Conversion Mode\
+✅DMA Continuous Requests
+##### ADC_Regular_Conversion_Mode
+Number of Conversion: 3
+- Rank 1
+- - Channel 0
+- - Sampling Time: 480 Cycles
+- Rank 2
+- - Channel 1
+- - Sampling Time: 480 Cycles
+- Rank 3
+- - Channel 4
+- - Sampling Time: 480 Cycles
+#### DMA Settings
+Add→ADC1\
+Mode: Circular\
+Data Width: Word\
+Increment Address Memory: ✅
 
 ### USART2
 ✅USART2 global interrupt
+
+## memo
+サンプリングタイムはできるだけ長い方がいい気がする\
+サンプル&ホールド型
