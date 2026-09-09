@@ -9,6 +9,7 @@
         "GPIOA",
         "GPIOB",
         "GPIOC",
+        "hadc",
         "huart",
         "NUCLEO",
         "ukaikokko",

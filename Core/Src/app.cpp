@@ -3,6 +3,7 @@
 #include <main.h>
 #include <usart.h>
 #include <gpio.h>
+#include <adc.h>
 #include <stdio.h>
 #include <ukaikokko/ukaikokko.h>
 
@@ -11,6 +12,8 @@ using namespace ukaikokko;
 InterruptBufferedUART<256, 256> pc(&huart2);
 GPOutput led(DebugLED_GPIO_Port, DebugLED_Pin);
 GPInput button(DebugButton_GPIO_Port, DebugButton_Pin);
+uint32_t dma_buf[3];
+AnalogInputDMA adc(&hadc1, dma_buf, sizeof(dma_buf) / sizeof(dma_buf[0]));
 
 #ifdef __cplusplus
 extern "C"
@@ -28,6 +31,7 @@ extern "C"
         printf(__TIME__ "\r\n");
 
         pc.begin();
+        adc.start();
 
         led.write(0);
     }
@@ -40,18 +44,9 @@ extern "C"
 
         if (now - pre >= 10)
         {
-            static int count = 0;
-            count++;
-            if (count >= 10)
-            {
-                if (button.read() == 1)
-                {
-                    led.toggle();
-                }
-                printf("now,%lu\n", now);
-
-                count = 0;
-            }
+            printf(">adc1:%d\r\n", (int)(adc.read(0) * 1000));
+            printf(">adc2:%d\r\n", (int)(adc.read(1) * 1000));
+            printf(">adc3:%d\r\n", (int)(adc.read(2) * 1000));
 
             pc.periodic();
             pre = now;
