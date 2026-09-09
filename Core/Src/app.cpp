@@ -30,7 +30,7 @@ extern "C"
         printf(__DATE__ "\r\n");
         printf(__TIME__ "\r\n");
 
-        pc.begin();
+        pc.start();
         adc.start();
 
         led.write(0);
